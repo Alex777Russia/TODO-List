@@ -40,7 +40,26 @@
 }
 
 - (void) save {
-    NSLog(@"Save");
+    NSString * eventInfo = self.nameTextField.text;
+    
+    NSDateFormatter * formater = [[NSDateFormatter alloc] init];
+    formater.dateFormat = @"HH:mm dd.MMMM.yyyy";
+    NSString * eventDate = [formater stringFromDate: self.eventDate];
+    
+    NSDictionary * dateDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                               eventInfo, @"eventInfo",
+                               eventDate, @"eventDate", nil];
+    
+    // MARK: -- first deprecated in iOS 10.0
+    UILocalNotification * notification = [[UILocalNotification alloc] init];
+    notification.userInfo = dateDict;
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.fireDate = self.eventDate;
+    notification.alertBody = eventInfo;
+    notification.applicationIconBadgeNumber = 1;
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification: notification];
 }
 
 - (void) handleEndEditing {
