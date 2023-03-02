@@ -7,8 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface DetailViewController : UIViewController
 
+@property (nonatomic, strong) NSDate * eventDate;
 
 @end
 

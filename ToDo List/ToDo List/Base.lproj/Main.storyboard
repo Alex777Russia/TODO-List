@@ -43,21 +43,59 @@
             </objects>
             <point key="canvasLocation" x="1322" y="15"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="1lA-PZ-Evu">
             <objects>
-                <viewController id="cB1-rt-Yuv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hEK-mW-V3T">
+                <viewController id="cB1-rt-Yuv" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hEK-mW-V3T" customClass="DetailView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1j-sw-cfY">
+                                <rect key="frame" x="21" y="121" width="350" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="nameTextField:" destination="YgC-ZG-CJ4" eventType="editingDidEnd" id="oge-8D-lLn"/>
+                                    <outlet property="delegate" destination="cB1-rt-Yuv" id="DMa-oB-aYf"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-qO-2R3">
+                                <rect key="frame" x="85" y="234" width="222" height="166"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicker:" destination="YgC-ZG-CJ4" eventType="valueChanged" id="x1Y-dA-sFQ"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-Qq-SxT">
+                                <rect key="frame" x="111" y="748" width="171" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="YgC-ZG-CJ4" eventType="touchUpInside" id="Fzl-DY-wkY"/>
+                                    <action selector="saveButton:forEvent:" destination="YgC-ZG-CJ4" eventType="touchUpInside" id="c02-86-R14"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wek-6t-2fL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="yOt-Kn-SVc"/>
+                    <connections>
+                        <outlet property="datePicker" destination="Sqr-qO-2R3" id="wyW-LX-k8Z"/>
+                        <outlet property="nameTextField" destination="O1j-sw-cfY" id="FOC-kI-jlO"/>
+                        <outlet property="saveButton" destination="0a4-Qq-SxT" id="GaD-ZI-kpV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JpW-XM-yKQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="YgC-ZG-CJ4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2210" y="15"/>
+            <point key="canvasLocation" x="2270.9923664122139" y="14.788732394366198"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NGZ-el-D49">
