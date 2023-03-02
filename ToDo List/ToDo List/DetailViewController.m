@@ -20,23 +20,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.datePicker.minimumDate = [NSDate date];
-    
-    [self.datePicker
-     addTarget:self
-     action:@selector(datePickerValueChanged)
-     forControlEvents:UIControlEventValueChanged];
-    
-    [self.saveButton
-     addTarget:self
-     action:@selector(save)
-     forControlEvents: UIControlEventTouchUpInside];
-    
-    UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc]
-                                          initWithTarget: self
-                                          action: @selector(handleEndEditing)];
-                                          
-    [self.view addGestureRecognizer:handleTap];
+    if (self.isDetail) {
+        self.nameTextField.text = self.eventInfo;
+        self.datePicker.date = self.eventDate;
+    }
+    else {
+        self.datePicker.minimumDate = [NSDate date];
+        
+        [self.datePicker
+         addTarget:self
+         action:@selector(datePickerValueChanged)
+         forControlEvents:UIControlEventValueChanged];
+        
+        [self.saveButton
+         addTarget:self
+         action:@selector(save)
+         forControlEvents: UIControlEventTouchUpInside];
+        
+        UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc]
+                                              initWithTarget: self
+                                              action: @selector(handleEndEditing)];
+                                              
+        [self.view addGestureRecognizer:handleTap];
+    }
 }
 
 - (void) save {

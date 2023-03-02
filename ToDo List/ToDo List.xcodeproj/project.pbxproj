@@ -17,6 +17,7 @@
 		F5B0D11E29B0B40600353251 /* ToDo_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0D11D29B0B40600353251 /* ToDo_ListTests.m */; };
 		F5B0D12829B0B40600353251 /* ToDo_ListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0D12729B0B40600353251 /* ToDo_ListUITests.m */; };
 		F5B0D12A29B0B40600353251 /* ToDo_ListUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0D12929B0B40600353251 /* ToDo_ListUITestsLaunchTests.m */; };
+		F5B0D13829B0DB4000353251 /* MainTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B0D13729B0DB4000353251 /* MainTableTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		F5B0D12329B0B40600353251 /* ToDo ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B0D12729B0B40600353251 /* ToDo_ListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDo_ListUITests.m; sourceTree = "<group>"; };
 		F5B0D12929B0B40600353251 /* ToDo_ListUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDo_ListUITestsLaunchTests.m; sourceTree = "<group>"; };
+		F5B0D13629B0DB4000353251 /* MainTableTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableTableViewController.h; sourceTree = "<group>"; };
+		F5B0D13729B0DB4000353251 /* MainTableTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				F5B0D10F29B0B40600353251 /* LaunchScreen.storyboard */,
 				F5B0D11229B0B40600353251 /* Info.plist */,
 				F5B0D11329B0B40600353251 /* main.m */,
+				F5B0D13629B0DB4000353251 /* MainTableTableViewController.h */,
+				F5B0D13729B0DB4000353251 /* MainTableTableViewController.m */,
 			);
 			path = "ToDo List";
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B0D10929B0B40500353251 /* DetailViewController.m in Sources */,
+				F5B0D13829B0DB4000353251 /* MainTableTableViewController.m in Sources */,
 				F5B0D10329B0B40500353251 /* AppDelegate.m in Sources */,
 				F5B0D11429B0B40600353251 /* main.m in Sources */,
 				F5B0D10629B0B40500353251 /* SceneDelegate.m in Sources */,
