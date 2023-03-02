@@ -107,19 +107,12 @@
 		F5B0D10029B0B40500353251 /* ToDo List */ = {
 			isa = PBXGroup;
 			children = (
-				F5B0D10129B0B40500353251 /* AppDelegate.h */,
-				F5B0D10229B0B40500353251 /* AppDelegate.m */,
-				F5B0D10429B0B40500353251 /* SceneDelegate.h */,
-				F5B0D10529B0B40500353251 /* SceneDelegate.m */,
-				F5B0D10729B0B40500353251 /* DetailViewController.h */,
-				F5B0D10829B0B40500353251 /* DetailViewController.m */,
-				F5B0D10A29B0B40500353251 /* Main.storyboard */,
+				F5B0D13C29B103C600353251 /* Storyboard */,
+				F5B0D13B29B103A000353251 /* DetailViewController */,
+				F5B0D13A29B1037A00353251 /* UITableView */,
+				F5B0D13929B1036400353251 /* App */,
 				F5B0D10D29B0B40600353251 /* Assets.xcassets */,
-				F5B0D10F29B0B40600353251 /* LaunchScreen.storyboard */,
 				F5B0D11229B0B40600353251 /* Info.plist */,
-				F5B0D11329B0B40600353251 /* main.m */,
-				F5B0D13629B0DB4000353251 /* MainTableTableViewController.h */,
-				F5B0D13729B0DB4000353251 /* MainTableTableViewController.m */,
 			);
 			path = "ToDo List";
 			sourceTree = "<group>";
@@ -139,6 +132,45 @@
 				F5B0D12929B0B40600353251 /* ToDo_ListUITestsLaunchTests.m */,
 			);
 			path = "ToDo ListUITests";
+			sourceTree = "<group>";
+		};
+		F5B0D13929B1036400353251 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0D11329B0B40600353251 /* main.m */,
+				F5B0D10129B0B40500353251 /* AppDelegate.h */,
+				F5B0D10229B0B40500353251 /* AppDelegate.m */,
+				F5B0D10429B0B40500353251 /* SceneDelegate.h */,
+				F5B0D10529B0B40500353251 /* SceneDelegate.m */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F5B0D13A29B1037A00353251 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0D13629B0DB4000353251 /* MainTableTableViewController.h */,
+				F5B0D13729B0DB4000353251 /* MainTableTableViewController.m */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		F5B0D13B29B103A000353251 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0D10729B0B40500353251 /* DetailViewController.h */,
+				F5B0D10829B0B40500353251 /* DetailViewController.m */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
+		F5B0D13C29B103C600353251 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F5B0D10A29B0B40500353251 /* Main.storyboard */,
+				F5B0D10F29B0B40600353251 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
