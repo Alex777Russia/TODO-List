@@ -20,23 +20,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.datePicker.minimumDate = [NSDate date];
-    
-    [self.datePicker
-     addTarget:self
-     action:@selector(datePickerValueChanged)
-     forControlEvents:UIControlEventValueChanged];
-    
-    [self.saveButton
-     addTarget:self
-     action:@selector(save)
-     forControlEvents: UIControlEventTouchUpInside];
-    
-    UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc]
-                                          initWithTarget: self
-                                          action: @selector(handleEndEditing)];
-                                          
-    [self.view addGestureRecognizer:handleTap];
+    if (self.isDetail) {
+        self.nameTextField.text = self.eventInfo;
+        self.nameTextField.userInteractionEnabled = NO;
+        self.datePicker.userInteractionEnabled = NO;
+        self.saveButton.alpha = 0;
+        
+        [self performSelector:@selector(setDatePickerWithAnimation) withObject:nil afterDelay:0.5];
+    }
+    else {
+        self.datePicker.minimumDate = [NSDate date];
+        
+        [self.datePicker
+         addTarget:self
+         action:@selector(datePickerValueChanged)
+         forControlEvents:UIControlEventValueChanged];
+        
+        [self.saveButton
+         addTarget:self
+         action:@selector(save)
+         forControlEvents: UIControlEventTouchUpInside];
+        
+        UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc]
+                                              initWithTarget: self
+                                              action: @selector(handleEndEditing)];
+                                              
+        [self.view addGestureRecognizer:handleTap];
+    }
 }
 
 - (void) save {
@@ -60,10 +70,20 @@
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] scheduleLocalNotification: notification];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"NewEvent"
+     object:nil];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) handleEndEditing {
     [self.view endEditing:YES];
+}
+
+- (void) setDatePickerWithAnimation {
+    [self.datePicker setDate:self.eventDate animated:YES];
 }
 
 - (void) datePickerValueChanged {
