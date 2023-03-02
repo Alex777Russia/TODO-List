@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--TODO List-->
         <scene sceneID="sQt-e5-JXD">
             <objects>
                 <tableViewController id="BzG-Qx-Pnr" customClass="MainTableTableViewController" sceneMemberID="viewController">
@@ -25,17 +25,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aBQ-fH-dfl">
-                                            <rect key="frame" x="20" y="6.0000000000000009" width="25" height="14.333333333333334"/>
+                                            <rect key="frame" x="20.000000000000004" y="-2" width="46.333333333333336" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cvy-oR-c01">
-                                            <rect key="frame" x="19.999999999999996" y="22.333333333333336" width="43.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="19.999999999999996" y="28" width="55.666666666666664" height="19.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="BzG-Qx-Pnr" id="ZGE-nD-2ny"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="QJq-Hj-pQb">
+                    <navigationItem key="navigationItem" title="TODO List" id="QJq-Hj-pQb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IuI-5w-qtB">
                             <connections>
                                 <segue destination="cB1-rt-Yuv" kind="push" id="ue9-Yj-DsX"/>
@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="1321.3740458015266" y="14.788732394366198"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Event-->
         <scene sceneID="1lA-PZ-Evu">
             <objects>
                 <viewController storyboardIdentifier="detailView" id="cB1-rt-Yuv" customClass="DetailViewController" sceneMemberID="viewController">
@@ -67,10 +67,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1j-sw-cfY">
-                                <rect key="frame" x="21" y="121" width="350" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1j-sw-cfY">
+                                <rect key="frame" x="21" y="121" width="350" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="nameTextField:" destination="YgC-ZG-CJ4" eventType="editingDidEnd" id="oge-8D-lLn"/>
@@ -80,15 +80,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-Qq-SxT">
                                 <rect key="frame" x="111" y="748" width="171" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save" cornerStyle="medium"/>
                                 <connections>
                                     <action selector="saveButton:" destination="YgC-ZG-CJ4" eventType="touchUpInside" id="Fzl-DY-wkY"/>
                                     <action selector="saveButton:forEvent:" destination="YgC-ZG-CJ4" eventType="touchUpInside" id="c02-86-R14"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-qO-2R3">
-                                <rect key="frame" x="39" y="256" width="314" height="222"/>
+                                <rect key="frame" x="38" y="256" width="314" height="222"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
                                     <!--1970-01-01 11:00:00 +0000-->
@@ -101,7 +103,7 @@
                         <viewLayoutGuide key="safeArea" id="Wek-6t-2fL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yOt-Kn-SVc"/>
+                    <navigationItem key="navigationItem" title="Event" id="yOt-Kn-SVc"/>
                     <connections>
                         <outlet property="datePicker" destination="Sqr-qO-2R3" id="wyW-LX-k8Z"/>
                         <outlet property="nameTextField" destination="O1j-sw-cfY" id="FOC-kI-jlO"/>
@@ -131,8 +133,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
