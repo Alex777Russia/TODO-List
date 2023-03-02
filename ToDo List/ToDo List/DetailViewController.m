@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.saveButton.userInteractionEnabled = NO;
     self.datePicker.minimumDate = [NSDate date];
     
     [self.datePicker
@@ -40,6 +41,40 @@
 }
 
 - (void) save {
+    if (self.eventDate) {
+        if([self.eventDate compare:[NSDate date]] == NSOrderedSame) {
+            [self showAlertWithMessage:@"Date of ivent can't be the same of currently"];
+        }
+        
+        else if ([self.eventDate compare:[NSDate date]] == NSOrderedAscending) {
+            [self showAlertWithMessage:@"Date of ivent can't be rarely of currently"];
+        }
+        
+        else {
+            [self setNotification];
+        }
+    }
+    else {
+        [self showAlertWithMessage:@"For save ivent changed date to some late"];
+    }
+}
+
+- (void) handleEndEditing {
+    if ([self.nameTextField.text length] != 0) {
+        [self.view endEditing:YES];;
+        self.saveButton.userInteractionEnabled = YES;
+    }
+    else {
+        [self showAlertWithMessage:@"For save ivent input text on text field"];
+    }
+}
+
+- (void) datePickerValueChanged {
+    self.eventDate = self.datePicker.date;
+    NSLog(@"date Picker %@", self.eventDate);
+}
+
+- (void) setNotification {
     NSString * eventInfo = self.nameTextField.text;
     
     NSDateFormatter * formater = [[NSDateFormatter alloc] init];
@@ -62,29 +97,29 @@
     [[UIApplication sharedApplication] scheduleLocalNotification: notification];
 }
 
-- (void) handleEndEditing {
-    [self.view endEditing:YES];
-}
-
-- (void) datePickerValueChanged {
-    self.eventDate = self.datePicker.date;
-    NSLog(@"date Picker %@", self.eventDate);
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual: self.nameTextField]) {
-        [textField resignFirstResponder];
+        
+        if ([self.nameTextField.text length] != 0) {
+            [self.nameTextField resignFirstResponder];
+            self.saveButton.userInteractionEnabled = YES;
+            return YES;
+        }
+        else {
+            [self showAlertWithMessage:@"For save ivent input text on text field"];
+        }
     }
-    return YES;
+    
+    return NO;
 }
 
-- (IBAction)saveButton:(UIButton *)sender {
-}
-
-- (IBAction)datePicker:(UIDatePicker *)sender {
-}
-
-- (IBAction)nameTextField:(UITextField *)sender {
+- (void) showAlertWithMessage: (NSString *) message {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Attention!"
+                                                     message:message
+                                                    delegate:self
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end
