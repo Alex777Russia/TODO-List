@@ -18,16 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray * array = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    self.arrayEvents = [[NSMutableArray alloc] initWithArray:array];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableViewWhenEvent)
+                                                 name:@"NewEvent"
+                                               object:nil];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView
+     reloadSections:[NSIndexSet indexSetWithIndex:0]
+     withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    self.arrayEvents = [[NSMutableArray alloc] init];
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+}
+
+- (void) reloadTableViewWhenEvent {
+    [self.arrayEvents removeAllObjects];
+    
     NSArray * array = [[UIApplication sharedApplication] scheduledLocalNotifications];
     self.arrayEvents = [[NSMutableArray alloc] initWithArray:array];
     
