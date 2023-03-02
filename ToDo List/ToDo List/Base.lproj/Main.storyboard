@@ -77,16 +77,6 @@
                                     <outlet property="delegate" destination="cB1-rt-Yuv" id="DMa-oB-aYf"/>
                                 </connections>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-qO-2R3">
-                                <rect key="frame" x="85" y="234" width="222" height="166"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="datePicker:" destination="YgC-ZG-CJ4" eventType="valueChanged" id="x1Y-dA-sFQ"/>
-                                </connections>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-Qq-SxT">
                                 <rect key="frame" x="111" y="748" width="171" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,6 +87,16 @@
                                     <action selector="saveButton:forEvent:" destination="YgC-ZG-CJ4" eventType="touchUpInside" id="c02-86-R14"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-qO-2R3">
+                                <rect key="frame" x="39" y="256" width="314" height="222"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicker:" destination="YgC-ZG-CJ4" eventType="valueChanged" id="x1Y-dA-sFQ"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wek-6t-2fL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

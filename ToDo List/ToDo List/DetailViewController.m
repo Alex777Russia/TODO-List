@@ -22,7 +22,11 @@
 
     if (self.isDetail) {
         self.nameTextField.text = self.eventInfo;
-        self.datePicker.date = self.eventDate;
+        self.nameTextField.userInteractionEnabled = NO;
+        self.datePicker.userInteractionEnabled = NO;
+        self.saveButton.alpha = 0;
+        
+        [self performSelector:@selector(setDatePickerWithAnimation) withObject:nil afterDelay:0.5];
     }
     else {
         self.datePicker.minimumDate = [NSDate date];
@@ -66,10 +70,16 @@
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] scheduleLocalNotification: notification];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) handleEndEditing {
     [self.view endEditing:YES];
+}
+
+- (void) setDatePickerWithAnimation {
+    [self.datePicker setDate:self.eventDate animated:YES];
 }
 
 - (void) datePickerValueChanged {
